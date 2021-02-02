@@ -1,0 +1,20 @@
+{
+    "name": "p5_chaume_erwan",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+      "sass": "sass --watch ./SASS:./CSS"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/Elixir92i/ErwanChaume_5_02022021.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/Elixir92i/ErwanChaume_5_02022021/issues"
+    },
+    "homepage": "https://github.com/Elixir92i/ErwanChaume_5_02022021#readme"
+  }
+  

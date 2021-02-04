@@ -4,10 +4,56 @@
 <head>
     <link rel="stylesheet" type="text/css" href="./CSS/styles.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
-    <title>OhMyFood !</title>
 </head>
+
+<body>
+    <!-- HEADER -->
+    <header>
+        <ul class="navbar">
+            <li class="logonavbar"><a class="logonavbar" href="index.html"><img src="./logo.png" alt="Logo de la marque Orinoco"></a></li>
+            <li><a class="menu" href="index.html">Home</a></li>
+            <li><a class="menu" href="#">Contact</a></li>
+            <li><a class="menu" href="#"><i class="fas fa-shopping-cart"></i></a></li>
+        </ul>
+    </header>
+
+    <!-- INFO -->
+    <section class="info">
+        <h1>Bienvenue chez Orinoco !</h1>
+        <p>Trouvez un large choix d’appareils photo vintage en parfait état de fonctionnement !<br /> Vous avez la
+            possibilité de choisir différentes couleurs selon les stocks.</p>
+    </section>
+
+    <!-- PRODUCTS -->
+    <div id="cameras">
+
+    </div>
+
+    <!-- TEMPLATE -->
+    <template id="cameras_template">
+        <div class="camera">
+            <h2 class="camera_name"></h2>
+            <p class="camera_lenses"></p>
+            <img class="camera_image">
+            <p class="camera_id"></p>
+            <p class="camera_description"></p>
+            <p class="camera_price"></p>
+        </div>
+    </template>
+
+    <!-- FOOTER -->
+
+
+    <!-- SCRIPTS -->
+    <script src="js/Camera.js"></script>
+    <script src="js/listCameras.js"></script>
+</body>
+
+
 
 </html>

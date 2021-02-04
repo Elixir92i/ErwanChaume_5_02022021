@@ -1,12 +1,12 @@
+alert("test")
 fetch("http://localhost:3000/api/cameras").then(promise => {
-promise.json().then(data => {
-console.log(data);
+    promise.json().then(data => {
 
-html = '';
-data.forEach(function(camera) {
-html = html + '<div>' + camera.name + '</div>';
-});
-});
+        productName = '';
+        data.forEach(function (camera) {
+            productName = productName + '<div>' + camera.name + '</div>';
+        });
 
-document.getElementById("listing").innerHtml = html;
+     document.getElementById("listing").innerHtml = productName;
+    });
 })

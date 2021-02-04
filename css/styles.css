@@ -1,3 +1,54 @@
+/* ##### MIXINS #####*/
+/*##### GENERALS #####*/
+body {
+  margin: 0;
+  font-family: "Roboto";
+  max-width: 1920px;
+  min-width: 280px;
+  margin: auto; }
 
+/*##### HEADER #####*/
+.logonavbar {
+  margin-right: auto;
+  padding-top: 8px;
+  padding-left: 10px; }
+
+.navbar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #e6e6e6;
+  display: flex;
+  justify-content: flex-end; }
+  .navbar li {
+    float: left; }
+    .navbar li .menu {
+      display: block;
+      color: #828282;
+      text-align: center;
+      padding: 25px 25px;
+      text-decoration: none;
+      transition: 100ms ease; }
+      .navbar li .menu:hover {
+        background-color: #828282;
+        color: #e6e6e6; }
+
+/*##### INFO #####*/
+.info {
+  text-align: center;
+  line-height: 25px; }
+  .info h1 {
+    font-size: 30px; }
+
+/*##### PRODUCTS #####*/
+#cameras {
+  margin: 5px; }
+
+.camera {
+  width: 300px; }
+
+.camera_image {
+  max-width: 100%; }
 
 /*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,66 @@
+/* ##### MIXINS #####*/
+$dark-grey: #828282;
+$light-grey: #e6e6e6;
+
+/*##### GENERALS #####*/
+body {
+    margin: 0;
+    font-family: "Roboto";
+    max-width: 1920px;
+    min-width: 280px;
+    margin: auto;
+}
+
+/*##### HEADER #####*/
+.logonavbar {
+    margin-right: auto;
+    padding-top: 8px;
+    padding-left: 10px;
+}
+
+.navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: $light-grey;
+    display: flex;
+    justify-content: flex-end;
+    li {
+        float: left;
+        .menu {
+            display: block;
+            color: $dark-grey;
+            text-align: center;
+            padding: 25px 25px;
+            text-decoration: none;
+            transition: 100ms ease;
+            &:hover {
+                background-color: $dark-grey;
+                color: $light-grey;
+            }
+        }
+    }
+}
+
+/*##### INFO #####*/
+.info {
+    text-align: center;
+    line-height: 25px;
+    h1 {
+        font-size: 30px;
+    }
+}
+
+/*##### PRODUCTS #####*/
+#cameras {
+    margin: 5px;
+}
+
+.camera {
+    width: 300px;
+}
+
+.camera_image {
+    max-width: 100%;
+}

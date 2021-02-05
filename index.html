@@ -9,13 +9,39 @@
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
+    <link rel="shortcut icon" type="image/png" href="favicon.png" />
+    <title>Orinoco | Achat appareils photo vintage !</title>
 </head>
 
 <body>
+    <!-- Pop-up -->
+    <div class="overlay" id="popup">
+        <div class="popupcontent">
+            <h2 class="titlecontact">Contact</h2>
+            <a class="close" href="#">&times;</a>
+            <div class="content">
+                <p>Vous avez des questions sur nos produits ? Ou sur la livraison ?
+                    Alors envoyez nous un e-mail à l'adresse suivante: <span class="emailbold"><a
+                            href="mailto:">contact@orinoco.fr</a></span>.
+                    <br />Ou utiliser simplement la messagerie intégrée !
+                </p>
+                <form>
+                    <div class="type">
+                        <input type="email" id="email" name="email" placeholder="example@abc.fr">
+                    </div>
+                    <div class="type">
+                        <textarea id="myTextArea" rows="5" placeholder="Écrivez-nous !"></textarea>
+                    </div>
+                    <button class="submit"><i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <!-- HEADER -->
     <header>
+        <a class="logonavbar" href="index.html"><img src="./logo.png" alt="Logo de la marque Orinoco"></a>
         <ul class="navbar">
-            <li class="logonavbar"><a class="logonavbar" href="index.html"><img src="./logo.png" alt="Logo de la marque Orinoco"></a></li>
             <li><a class="menu" href="index.html">Home</a></li>
             <li><a class="menu" href="#">Contact</a></li>
             <li><a class="menu" href="#"><i class="fas fa-shopping-cart"></i></a></li>
@@ -25,29 +51,53 @@
     <!-- INFO -->
     <section class="info">
         <h1>Bienvenue chez Orinoco !</h1>
-        <p>Trouvez un large choix d’appareils photo vintage en parfait état de fonctionnement !<br /> Vous avez la
-            possibilité de choisir différentes couleurs selon les stocks.</p>
+        <p>Trouvez un large choix d’appareils photo vintage en parfait état de fonctionnement !<br /> Nos appareils photo sont disponibles avec différents objectifs selon les stocks.</p>
     </section>
 
     <!-- PRODUCTS -->
-    <div id="cameras">
+    <section class="bg_product">
+        <div id="cameras">
+            <div class="recap">
 
-    </div>
+            </div>
 
+        </div>
+    </section>
     <!-- TEMPLATE -->
     <template id="cameras_template">
         <div class="camera">
-            <h2 class="camera_name"></h2>
-            <p class="camera_lenses"></p>
-            <img class="camera_image">
-            <p class="camera_id"></p>
-            <p class="camera_description"></p>
+            <div class="card_1">
+                <img class="camera_image">
+            </div>
+            <div class="card_2">
+                <h2 class="camera_name"></h2>
+                <p class="camera_lenses"></p>
+                <p class="camera_description"></p>
+                <p class="camera_id"></p>
+                <a href="#" class="moreinfo">Plus d'information</a>
+            </div>
             <p class="camera_price"></p>
         </div>
     </template>
 
     <!-- FOOTER -->
-
+    <footer>
+        <div class="about">
+            <p>À propos</p>
+            <ul>
+                <li><a href="#">Qui sommes-nous ?</a></li>
+                <li><a href="#">Conditions générales de vente</a></li>
+                <li><a href="#">Données et confidentialité</a></li>
+            </ul>
+        </div>
+        <div class="assistance">
+            <p>Assistance</p>
+            <ul>
+                <li><a href="#">Centre d'aide</a></li>
+                <li><a href="#popup">Nous contacter</a></li>
+            </ul>
+        </div>
+    </footer>
 
     <!-- SCRIPTS -->
     <script src="js/Camera.js"></script>

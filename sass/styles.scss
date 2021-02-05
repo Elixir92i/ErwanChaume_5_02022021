@@ -1,21 +1,150 @@
 /* ##### MIXINS #####*/
 $dark-grey: #828282;
-$light-grey: #e6e6e6;
+$light-grey: #f0f0f0;
 
 /*##### GENERALS #####*/
 body {
-    margin: 0;
     font-family: "Roboto";
     max-width: 1920px;
     min-width: 280px;
     margin: auto;
 }
 
+/*##### POP-UP #####*/
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 1;
+}
+
+.emailbold {
+    font-weight: bold;
+    a {
+        color: $dark-grey;
+    }
+}
+
+.overlay:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+.popupcontent {
+    margin: 150px auto;
+    padding: 20px;
+    background: $light-grey;
+    border-radius: 5px;
+    width: 35%;
+    position: relative;
+    transition: all 0.5s ease-in-out;
+    h1 {
+        margin-top: 0;
+        margin-left: 0;
+    }
+    .close {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        transition: all 200ms;
+        font-size: 30px;
+        font-weight: bold;
+        text-decoration: none;
+        color: #333;
+        &:hover {
+            color: $dark-grey;
+            transform: rotate(90deg);
+        }
+    }
+    .content {
+        max-height: 30%;
+        overflow: auto;
+        p {
+            margin-bottom: 10px;
+        }
+    }
+}
+
+.titlecontact {
+    position: relative;
+    padding-bottom: 8px;
+    font-weight: lighter;
+    &::after {
+        content: "";
+        background-color: $dark-grey;
+        width: 40px;
+        height: 3px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.type {
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+input {
+    width: 95%;
+    border-style: none;
+    outline: none;
+    border: $dark-grey 1px solid;
+    border-radius: 5px;
+    padding: 5px;
+}
+textarea {
+    width: 95%;
+    resize: none;
+    border-style: none;
+    outline: none;
+    border: $dark-grey 1px solid;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+::placeholder {
+    font-family: "Roboto";
+}
+.submit {
+    margin: auto;
+    outline: none;
+    cursor: pointer;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    font-size: 16px;
+    border-style: none;
+    background: rgb(230, 133, 0);
+    background: linear-gradient(132deg, rgba(230, 133, 0, 0.8743872549019608) 0%, rgba(137, 82, 254, 1) 98%);
+    height: 25px;
+    width: 20%;
+    border-radius: 12px;
+    color: white;
+    box-shadow: 10px 7px 26px -16px rgba(0, 0, 0, 1);
+    transition-duration: 150ms;
+    &:hover {
+        box-shadow: 0px 0px 15px -5px rgba(0, 0, 0, 0.75);
+    }
+}
+
 /*##### HEADER #####*/
 .logonavbar {
-    margin-right: auto;
-    padding-top: 8px;
-    padding-left: 10px;
+    position: absolute;
+    margin-left: 10px;
+    top: 8px;
 }
 
 .navbar {
@@ -47,6 +176,7 @@ body {
 .info {
     text-align: center;
     line-height: 25px;
+    padding: 30px;
     h1 {
         font-size: 30px;
     }
@@ -54,13 +184,156 @@ body {
 
 /*##### PRODUCTS #####*/
 #cameras {
-    margin: 5px;
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    justify-content: space-evenly;
+    /*width: 60%;*/
+    margin: auto;
+    flex-wrap: wrap;
+}
+
+.bg_product {
+    background-color: $light-grey;
+    width: 100%;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.recap {
+    width: 30%;
+    border: 5px solid white;
+    border-radius: 25px;
+    margin: 10px;
+    background-color: white;
+    box-shadow: 0px 0px 15px -5px rgba(0, 0, 0, 0.75);
+    transition: 250ms ease;
+    &:hover {
+        box-shadow: 0px 0px 15px -1px rgba(0, 0, 0, 0.75);
+    }
 }
 
 .camera {
-    width: 300px;
+    background-color: white;
+    overflow: hidden;
+    display: flex;
+    width: 30%;
+    height: 180px;
+    border: 5px solid white;
+    border-radius: 15px;
+    margin: 10px;
+    box-shadow: 0px 0px 15px -5px rgba(0, 0, 0, 0.75);
+    transition: 250ms ease;
+    /*animation: appear 1s;
+    animation-fill-mode: both;
+    animation-timing-function: ease;*/
+    &:hover {
+        box-shadow: 0px 0px 15px -1px rgba(0, 0, 0, 0.75);
+        .moreinfo {
+            margin-right: 0px;
+        }
+    }
+    &_price {
+        display: none;
+    }
+    &_lenses {
+        height: 20%;
+    }
+    &_description {
+        height: 50%;
+    }
+    &_id {
+        height: 10%;
+    }
+    &_name {
+        height: 20%;
+        margin: 0;
+        padding: 0;
+    }
 }
 
-.camera_image {
-    max-width: 100%;
+.card_1 {
+    width: 40%;
+    .camera_image {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.card_2 {
+    width: 60%;
+    margin-left: 2%;
+    position: relative;
+    p {
+        margin: 0;
+    }
+    .card_lenses {
+    }
+    .card_description {
+        height: 70%;
+    }
+    .card_id {
+        height: 10%;
+    }
+    .moreinfo {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        text-decoration: none;
+        width: 160px;
+        height: 35%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: -175px;
+        color: white;
+        border-radius: 15px;
+        background: rgb(230, 133, 0);
+        background: linear-gradient(132deg, rgba(230, 133, 0, 0.8743872549019608) 0%, rgba(137, 82, 254, 1) 98%);
+        box-shadow: 0px 0px 15px -5px rgba(0, 0, 0, 0.75);
+        transition: 250ms;
+    }
+}
+
+/*##### FOOTER #####*/
+footer {
+    background-color: $dark-grey;
+    color: $light-grey;
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 30px;
+    padding-left: 50px;
+    padding-bottom: 35px;
+    p {
+        font-size: 20px;
+        padding-bottom: 8px;
+        position: relative;
+        &::after {
+            content: "";
+            background-color: $light-grey;
+            width: 40px;
+            height: 3px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+    }
+    li {
+        list-style: none;
+        line-height: 30px;
+    }
+    ul {
+        padding: 0;
+        margin: 0;
+    }
+    a {
+        text-decoration: none;
+        color: $light-grey;
+    }
+    .about {
+        width: 50%;
+    }
+    .assistance {
+        width: 50%;
+    }
 }

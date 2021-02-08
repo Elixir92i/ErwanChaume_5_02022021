@@ -125,27 +125,48 @@ textarea {
   margin-left: 10px;
   top: 8px; }
 
-.navbar {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #f0f0f0;
-  display: flex;
-  justify-content: flex-end; }
-  .navbar li {
-    float: left; }
-    .navbar li .menu {
-      display: block;
-      color: #828282;
-      text-align: center;
-      padding: 25px 25px;
-      text-decoration: none;
-      transition: 100ms ease; }
-      .navbar li .menu:hover {
-        background-color: #828282;
-        color: #f0f0f0; }
+/* ##### MIXINS #####*/
+body {
+  font-family: "Roboto";
+  min-width: 280px; }
 
+.topnav {
+  overflow: hidden;
+  background-color: #f0f0f0; }
+  .topnav a {
+    float: right;
+    display: block;
+    color: #828282;
+    text-align: center;
+    padding: 25px 25px;
+    text-decoration: none;
+    font-size: 17px; }
+    .topnav a:hover {
+      background-color: #828282;
+      color: #f0f0f0; }
+  .topnav .icon {
+    display: none; }
+
+@media screen and (max-width: 600px) {
+  .topnav a {
+    display: none; }
+
+  .topnav a.icon {
+    float: right;
+    display: block; } }
+@media screen and (max-width: 600px) {
+  .topnav.responsive {
+    padding-top: 70px; }
+
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0; }
+
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left; } }
 /*##### INFO #####*/
 .info {
   text-align: center;
@@ -170,16 +191,53 @@ textarea {
   padding-bottom: 30px; }
 
 .recap {
+  background-color: white;
+  overflow: hidden;
+  display: flex;
   width: 30%;
   height: 180px;
   border: 5px solid white;
-  border-radius: 25px;
+  border-radius: 15px;
   margin: 10px;
-  background-color: white;
   box-shadow: 0px 0px 15px -5px rgba(0, 0, 0, 0.75);
   transition: 250ms ease; }
   .recap:hover {
     box-shadow: 0px 0px 15px -1px rgba(0, 0, 0, 0.75); }
+
+.shopping_cart {
+  width: 40%; }
+  .shopping_cart .fas {
+    font-size: 90px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    margin-left: -10px;
+    color: #828282; }
+  .shopping_cart .checkout_cart {
+    margin-top: 10px;
+    text-decoration: none;
+    width: 100%;
+    height: 38%;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border-radius: 15px;
+    background: #e68500;
+    background: linear-gradient(132deg, #e68500 0%, #8952fe 98%);
+    box-shadow: 0px 0px 15px -5px black; }
+    .shopping_cart .checkout_cart .fas {
+      display: none; }
+
+.recap_cart {
+  width: 60%;
+  margin-left: 2%; }
+  .recap_cart h2 {
+    height: 20%;
+    margin: 0;
+    padding: 0; }
 
 .camera {
   background-color: white;
@@ -196,6 +254,8 @@ textarea {
     box-shadow: 0px 0px 15px -1px rgba(0, 0, 0, 0.75); }
     .camera:hover .moreinfo {
       margin-bottom: 0px; }
+    .camera:hover .camera_id {
+      display: none; }
   .camera_price {
     position: absolute;
     top: 5px;
@@ -331,7 +391,50 @@ footer {
       justify-content: inherit;
       right: 0px; }
     .card_2 .moreinfo {
-      margin-bottom: 0px; }
+      margin-bottom: 0px;
+      height: 25%; }
+
+  .recap {
+    display: flex;
+    flex-direction: row-reverse; }
+
+  .recap_cart {
+    width: 100%; }
+    .recap_cart h2 {
+      height: 20%;
+      justify-content: center;
+      align-items: center;
+      margin-top: 10px; }
+
+  #filled_cart {
+    height: 80%; }
+
+  .shopping_cart {
+    width: 60px; }
+    .shopping_cart .fas {
+      display: none; }
+    .shopping_cart .checkout_cart {
+      position: absolute;
+      margin-top: 10px;
+      text-decoration: none;
+      width: 45px;
+      height: 45px;
+      display: flex;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      border-radius: 15px;
+      background: #e68500;
+      background: linear-gradient(132deg, #e68500 0%, #8952fe 98%);
+      box-shadow: 0px 0px 15px -5px black; }
+      .shopping_cart .checkout_cart .fas {
+        display: inline;
+        font-size: 20px;
+        margin-left: 0;
+        margin-top: 0; }
+      .shopping_cart .checkout_cart p {
+        display: none; }
 
   footer .about {
     width: 80%; }

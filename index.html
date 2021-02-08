@@ -41,11 +41,14 @@
     <!-- HEADER -->
     <header>
         <a class="logonavbar" href="index.html"><img src="./logo.png" alt="Logo de la marque Orinoco"></a>
-        <ul class="navbar" id="navbar">
-            <li><a class="menu" href="index.html">Home</a></li>
-            <li><a class="menu" href="#">Contact</a></li>
-            <li><a class="menu" href="#"><i class="fas fa-shopping-cart"></i></a></li>
-        </ul>
+        <div class="topnav" id="myTopnav">
+            <a href="index.html">Home</a>
+            <a href="#popup">Contact</a>
+            <a href="#"><i class="fas fa-shopping-cart"></i></a>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <i class="fas fa-bars"></i>
+            </a>
+        </div>
     </header>
 
     <!-- INFO -->
@@ -58,12 +61,25 @@
     <!-- PRODUCTS -->
     <section class="bg_product">
         <div id="cameras">
-            <div class="recap">
+            <div class="recap" id="recap">
+                <div class="shopping_cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <a href="#" class="checkout_cart">
+                        <p>Finaliser votre commande</p>
+                        <i class="fas fa-shopping-cart"></i>
+                    </a>
+                </div>
+                <div class="recap_cart">
+                    <h2>Aperçu de votre panier:</h2>
+                    <div id="filled_cart">
 
+                    </div>
+                </div>
             </div>
 
         </div>
     </section>
+
     <!-- TEMPLATE -->
     <template id="cameras_template">
         <div class="camera">
@@ -78,8 +94,11 @@
                 <a href="#" class="moreinfo">Plus d'information</a>
                 <p class="camera_price"></p>
             </div>
-
         </div>
+    </template>
+
+    <template id="recap_template">
+
     </template>
 
     <!-- FOOTER -->
@@ -104,6 +123,7 @@
     <!-- SCRIPTS -->
     <script src="js/Camera.js"></script>
     <script src="js/listCameras.js"></script>
+    <script src="js/navBar.js"></script>
 
 </body>
 

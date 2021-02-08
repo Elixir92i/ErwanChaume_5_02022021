@@ -147,30 +147,7 @@ textarea {
     top: 8px;
 }
 
-.navbar {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: $light-grey;
-    display: flex;
-    justify-content: flex-end;
-    li {
-        float: left;
-        .menu {
-            display: block;
-            color: $dark-grey;
-            text-align: center;
-            padding: 25px 25px;
-            text-decoration: none;
-            transition: 100ms ease;
-            &:hover {
-                background-color: $dark-grey;
-                color: $light-grey;
-            }
-        }
-    }
-}
+@import "./navbar.scss";
 
 /*##### INFO #####*/
 .info {
@@ -200,16 +177,57 @@ textarea {
 }
 
 .recap {
+    background-color: white;
+    overflow: hidden;
+    display: flex;
     width: 30%;
     height: 180px;
     border: 5px solid white;
-    border-radius: 25px;
+    border-radius: 15px;
     margin: 10px;
-    background-color: white;
     box-shadow: 0px 0px 15px -5px rgba(0, 0, 0, 0.75);
     transition: 250ms ease;
     &:hover {
         box-shadow: 0px 0px 15px -1px rgba(0, 0, 0, 0.75);
+    }
+}
+.shopping_cart {
+    width: 40%;
+    .fas {
+        font-size: 90px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+        margin-left: -10px;
+        color: $dark-grey;
+    }
+    .checkout_cart {
+        margin-top: 10px;
+        text-decoration: none;
+        width: 100%;
+        height: 38%;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        border-radius: 15px;
+        background: rgb(230, 133, 0);
+        background: linear-gradient(132deg, rgb(230, 133, 0) 0%, rgb(137, 82, 254) 98%);
+        box-shadow: 0px 0px 15px -5px rgb(0, 0, 0);
+        .fas {
+            display: none;
+        }
+    }
+}
+.recap_cart {
+    width: 60%;
+    margin-left: 2%;
+    h2 {
+        height: 20%;
+        margin: 0;
+        padding: 0;
     }
 }
 
@@ -228,6 +246,9 @@ textarea {
         box-shadow: 0px 0px 15px -1px rgba(0, 0, 0, 0.75);
         .moreinfo {
             margin-bottom: 0px;
+        }
+        .camera_id {
+            display: none;
         }
     }
     &_price {
@@ -402,8 +423,57 @@ footer {
         }
         .moreinfo {
             margin-bottom: 0px;
+            height: 25%;
         }
     }
+    .recap{
+        display: flex;
+        flex-direction: row-reverse;
+    }
+    .recap_cart{
+        width: 100%;
+        h2{
+            height: 20%;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10px;
+        }
+    }
+    #filled_cart{
+        height: 80%;
+    }
+    .shopping_cart {
+        width: 60px;
+        .fas{
+            display: none;
+        }
+        .checkout_cart {
+            position: absolute;
+            margin-top: 10px;
+            text-decoration: none;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            border-radius: 15px;
+            background: rgb(230, 133, 0);
+            background: linear-gradient(132deg, rgb(230, 133, 0) 0%, rgb(137, 82, 254) 98%);
+            box-shadow: 0px 0px 15px -5px rgb(0, 0, 0);
+            .fas {
+                display: inline;
+                font-size: 20px;
+                margin-left: 0;
+                margin-top: 0;
+            }
+            p {
+                display: none;
+            }
+        }
+    }
+
     footer {
         .about {
             width: 80%;
@@ -413,8 +483,6 @@ footer {
         }
     }
 }
-
-
 
 @media (max-width: 300px) {
     .card_2 {

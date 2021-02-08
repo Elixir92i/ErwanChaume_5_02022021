@@ -13,7 +13,7 @@ async function main() {
             $newTemplateCamera.querySelector('.camera_image').src = camera.imageUrl
             $newTemplateCamera.querySelector('.camera_id').innerText = 'Ref: ' + camera.id
             $newTemplateCamera.querySelector('.camera_description').innerText = camera.description
-            $newTemplateCamera.querySelector('.camera_price').innerText = camera.price + '€'
+            $newTemplateCamera.querySelector('.camera_price').innerText = camera.price / 100 + ',00€'
             $cameras.append($newTemplateCamera);
         });
         // $cameras.innerHTML = cameras

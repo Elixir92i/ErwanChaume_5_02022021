@@ -51,55 +51,15 @@
         </div>
     </header>
 
-    <!-- INFO -->
-    <section class="info">
-        <h1>Bienvenue chez Orinoco !</h1>
-        <p>Trouvez un large choix d’appareils photo vintage en parfait état de fonctionnement !<br /> Nos appareils
-            photo sont disponibles avec différents objectifs selon les stocks.</p>
-    </section>
-
     <!-- PRODUCTS -->
-    <section class="bg_product">
-        <div id="cameras">
-            <div class="recap" id="recap">
-                <div class="shopping_cart">
-                    <i class="fas fa-shopping-cart"></i>
-                    <a href="#" class="checkout_cart">
-                        <p>Finaliser votre commande</p>
-                        <i class="fas fa-shopping-cart"></i>
-                    </a>
-                </div>
-                <div class="recap_cart">
-                    <h2>Aperçu de votre panier:</h2>
-                    <div id="filled_cart">
-
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section>
+    <div>
+        <img id="imgProduct">
+        <select id="lenses_choice">
+            <option value="">Choisissez votre objectif</option>
+        </select>
+    </div>
 
     <!-- TEMPLATE -->
-    <template id="cameras_template">
-        <div class="camera">
-            <div class="card_1">
-                <img class="camera_image">
-            </div>
-            <div class="card_2">
-                <h2 class="camera_name"></h2>
-                <p class="camera_lenses"></p>
-                <p class="camera_description"></p>
-                <p class="camera_id"></p>
-                <a href="" class="moreinfo">Plus d'information</a>
-                <p class="camera_price"></p>
-            </div>
-        </div>
-    </template>
-
-    <template id="recap_template">
-
-    </template>
 
     <!-- FOOTER -->
     <footer>
@@ -124,6 +84,7 @@
     <script src="js/Camera.js"></script>
     <script src="js/listCameras.js"></script>
     <script src="js/navBar.js"></script>
+    <script src="js/product.js"></script>
 
 </body>
 

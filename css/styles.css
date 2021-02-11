@@ -156,7 +156,8 @@ body {
     display: block; } }
 @media screen and (max-width: 600px) {
   .topnav.responsive {
-    padding-top: 70px; }
+    padding-top: 70px;
+    transition: 500ms ease; }
 
   .topnav.responsive .icon {
     position: absolute;
@@ -412,7 +413,8 @@ footer {
   .shopping_cart {
     width: 60px; }
     .shopping_cart .fas {
-      display: none; }
+      display: none;
+      color: white; }
     .shopping_cart .checkout_cart {
       position: absolute;
       margin-top: 10px;

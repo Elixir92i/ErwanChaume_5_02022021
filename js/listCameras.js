@@ -3,6 +3,7 @@ async function main() {
         const camerasRaw = await fetch('http://localhost:3000/api/cameras').then(r => r.json());
         const cameras = camerasRaw.map(value => new Camera(value))
 
+        
         const $cameras = document.getElementById('cameras')
         const $templateCamera = document.getElementById('cameras_template').content;
 
@@ -14,6 +15,7 @@ async function main() {
             $newTemplateCamera.querySelector('.camera_id').innerText = 'Ref: ' + camera.id
             $newTemplateCamera.querySelector('.camera_description').innerText = camera.description
             $newTemplateCamera.querySelector('.camera_price').innerText = camera.price / 100 + ',00€'
+            $newTemplateCamera.querySelector('.moreinfo').href = 'product.html?id=' + camera.id;
             $cameras.append($newTemplateCamera);
         });
         // $cameras.innerHTML = cameras

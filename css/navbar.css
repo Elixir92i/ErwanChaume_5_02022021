@@ -29,7 +29,8 @@ body {
     display: block; } }
 @media screen and (max-width: 600px) {
   .topnav.responsive {
-    padding-top: 70px; }
+    padding-top: 70px;
+    transition: 500ms ease; }
 
   .topnav.responsive .icon {
     position: absolute;

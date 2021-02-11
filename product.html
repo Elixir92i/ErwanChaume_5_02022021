@@ -2,11 +2,12 @@
 <html lang="fr">
 
 <head>
-    <link rel="stylesheet" type="text/css" href="./CSS/styles.css">
+    <link rel="stylesheet" type="text/css" href="./CSS/product.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <script src="https://use.fontawesome.com/releases/v5.15.2/js/all.js" data-auto-a11y="true"></script>
+    <script src="https://use.fontawesome.com/releases/v5.15.2/js/all.js" data-auto-a11y="true"
+        data-replacement-class="fas"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/png" href="favicon.png" />
@@ -52,15 +53,21 @@
     </header>
 
     <!-- PRODUCTS -->
-    <div>
-        <img id="imgProduct">
-        <select id="lenses_choice">
-            <option value="">Choisissez votre objectif</option>
-        </select>
-    </div>
-
-    <!-- TEMPLATE -->
-
+    <section class="bg-product">
+        <div class="product">
+                <img id="camera_image">
+                <div class="card_1">
+                    <h2 id="camera_name"></h2>
+                    <p id="camera_description"></p>
+                    <select id="camera_lenses">
+                        <option value="">Choisissez votre objectif</option>
+                    </select>
+                    <p id="camera_price"></p>
+                    <a href="#" class="add_cart">Ajouter au panier</a>
+                    <p id="camera_id"></p>
+                </div>
+        </div>
+    </section>
     <!-- FOOTER -->
     <footer>
         <div class="about">

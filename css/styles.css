@@ -208,6 +208,7 @@ body {
 .shopping_cart {
   width: 40%; }
   .shopping_cart .fas {
+    width: 100%;
     font-size: 90px;
     text-align: center;
     display: flex;

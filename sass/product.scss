@@ -153,58 +153,67 @@ textarea {
 .bg-product {
     background-color: $light-grey;
     padding: 20px;
-    margin-top: 50px;
-    .product {
-        width: 60%;
-        margin: auto;
-        display: flex;
-        justify-content: space-between;
-        .card_1 {
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-            justify-content: space-around;
-            width: 30%;
-            background-color: white;
-            border: 5px solid white;
-            box-shadow: 0px 0px 15px -5px rgba(0, 0, 0, 0.75);
-            border-radius: 15px;
-            h2 {
-                margin-bottom: 0;
-            }
-            span {
-                font-weight: bold;
-            }
-            #camera_description {
-                margin-left: 15px;
-                margin-right: 15px;
-            }
-            #camera_lenses {
-                width: 90%;
-                height: 30px;
-            }
-            .add_cart {
-                text-decoration: none;
-                width: 65%;
-                height: 50px;
-                display: flex;
-                text-align: center;
-                justify-content: center;
-                align-items: center;
-                color: white;
-                border-radius: 15px;
-                background: rgb(230, 133, 0);
-                background: linear-gradient(132deg, rgb(230, 133, 0) 0%, rgb(137, 82, 254) 98%);
-                box-shadow: 0px 0px 15px -5px rgb(0, 0, 0);
-            }
-        }
+    margin-top: 47px;
+    margin-bottom: 48px;
+}
+
+.product {
+    width: 60%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.card_1 {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30%;
+    background-color: white;
+    border: 5px solid white;
+    box-shadow: 0px 0px 15px -5px rgba(0, 0, 0, 0.75);
+    border-radius: 0px 15px 15px 0px;
+    h2 {
+        margin-bottom: 0;
     }
+    span {
+        font-weight: bold;
+    }
+    #camera_description {
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+    #camera_lenses {
+        width: 90%;
+        height: 30px;
+    }
+    .add_cart {
+        text-decoration: none;
+        width: 65%;
+        height: 50px;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        border-radius: 15px;
+        background: rgb(230, 133, 0);
+        background: linear-gradient(132deg, rgb(230, 133, 0) 0%, rgb(137, 82, 254) 98%);
+        box-shadow: 0px 0px 15px -5px rgb(0, 0, 0);
+    }
+}
+
+select {
+    width: 90%;
+    height: 30px;
 }
 
 #camera_image {
     width: 68%;
     object-fit: cover;
     margin-right: 2%;
+    border-radius: 15px 0px 0px 15px;
 }
 
 /*##### FOOTER #####*/
@@ -252,15 +261,41 @@ footer {
 
 /*##### MEDIAS #####*/
 @media (max-width: 1440px) {
-    .bg-product {
-        .product {
-            width: 70%;
-        }
+    .product {
+        width: 70%;
     }
 }
+
 @media (max-width: 1024px) {
+    .product {
+        width: 80%;
+    }
+
     .popupcontent {
         width: 60%;
+    }
+}
+
+@media (max-width: 900px) {
+    .bg-product {
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+    .product {
+        flex-direction: column;
+    }
+
+    #camera_image {
+        width: 80%;
+        margin: auto;
+        border-radius: 15px 15px 0 0;
+    }
+
+    .card_1 {
+        width: 80%;
+        margin: auto;
+        border-radius: 0 0 15px 15px;
+        border: none;
     }
 }
 
@@ -268,6 +303,24 @@ footer {
     .popupcontent {
         width: 85%;
     }
+}
+
+@media (max-width: 450px) {
+    #camera_image {
+        width: 95%;
+    }
+
+    .card_1 {
+        width: 95%;
+    }
+
+    .bg_product {
+        padding: 0;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        margin-bottom: 0;
+    }
+
     footer {
         .about {
             width: 80%;
@@ -275,5 +328,17 @@ footer {
         .assistance {
             width: 80%;
         }
+    }
+}
+
+@media (max-width: 375px) {
+    .product {
+        width: 100%;
+    }
+    .bg-product{
+        padding-top: 20px;
+        padding-bottom: 20px;
+        padding-right: 10px;
+        padding-left: 10px;
     }
 }

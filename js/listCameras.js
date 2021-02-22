@@ -18,9 +18,6 @@ async function main() {
             $newTemplateCamera.querySelector('.moreinfo').href = 'product.html?id=' + camera.id;
             $cameras.append($newTemplateCamera);
         });
-        // $cameras.innerHTML = cameras
-        //     .map(teddy => teddy.toHtml())
-        //     .join('<hr>');
     } catch (error) {
 
     }

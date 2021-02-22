@@ -59,12 +59,16 @@
             <div class="card_1">
                 <h2 id="camera_name"></h2>
                 <p id="camera_description"></p>
-                    <select id="camera_lenses">
+                <form id="form">
+                    <select id="camera_lenses" name="type">
                         <option value="" selected disabled required>Choisissez votre objectif</option>
                     </select>
-                <p id="camera_price"></p>
-                <a href="#" class="add_cart" id="addProductCart">Ajouter au panier</a>
-                <p id="camera_id"></p>
+                    <div class="error" id="errors_type"></div>
+                    <p id="camera_price"></p>
+                    <!--<a href="#" class="add_cart" id="addProductCart">Ajouter au panier</a>-->
+                    <button type="submit" class="add_cart" id="addProductCart">Ajouter au panier</button>
+                </form>
+                <div class="added" id="success_type"></div>
             </div>
         </div>
     </section>
@@ -89,10 +93,9 @@
 
     <!-- SCRIPTS -->
     <script src="js/Camera.js"></script>
-    <script src="js/listCameras.js"></script>
     <script src="js/navBar.js"></script>
     <script src="js/product.js"></script>
-    <script src="js/cart.js"></script>
+    <script src="js/carttest.js"></script>
     <script>
         addCart()
     </script>

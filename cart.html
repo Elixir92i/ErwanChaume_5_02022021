@@ -2,7 +2,7 @@
 <html lang="fr">
 
 <head>
-    <link rel="stylesheet" type="text/css" href="./CSS/product.css">
+    <link rel="stylesheet" type="text/css" href="./CSS/cart.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
@@ -53,34 +53,51 @@
     </header>
 
     <!-- CART -->
-	<section class="cart">
+        <section class="basket">
+            <div id="camerasCart">
 
-	</section>
-    
-    <!-- FOOTER -->
-    <footer>
-        <div class="about">
-            <p>À propos</p>
-            <ul>
-                <li><a href="#">Qui sommes-nous ?</a></li>
-                <li><a href="#">Conditions générales de vente</a></li>
-                <li><a href="#">Données et confidentialité</a></li>
-            </ul>
-        </div>
-        <div class="assistance">
-            <p>Assistance</p>
-            <ul>
-                <li><a href="#">Centre d'aide</a></li>
-                <li><a href="#popup">Nous contacter</a></li>
-            </ul>
-        </div>
-    </footer>
+            </div>
+            <template id="cameras_template">
+                <div class="product_cart" id="product_cart">
+                    <img class="camera_image">
+                    <div class="camera_name"></div>
+                    <div class="camera_lense"></div>
+                    <div class="camera_price"></div>
+                    <div id="remove_product"></div>
+                </div>
+            </template>
+
+            <div id="basket-resume">
+                <p id="emptyCart">Votre panier est vide !</p>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer>
+            <div class="about">
+                <p>À propos</p>
+                <ul>
+                    <li><a href="#">Qui sommes-nous ?</a></li>
+                    <li><a href="#">Conditions générales de vente</a></li>
+                    <li><a href="#">Données et confidentialité</a></li>
+                </ul>
+            </div>
+            <div class="assistance">
+                <p>Assistance</p>
+                <ul>
+                    <li><a href="#">Centre d'aide</a></li>
+                    <li><a href="#popup">Nous contacter</a></li>
+                </ul>
+            </div>
+        </footer>
 
     <!-- SCRIPTS -->
     <script src="js/Camera.js"></script>
-    <script src="js/listCameras.js"></script>
     <script src="js/navBar.js"></script>
-    <script src="js/product.js"></script>
+    <script src="js/carttest.js"></script>
+    <script>
+        addition();
+    </script>
 
 </body>
 

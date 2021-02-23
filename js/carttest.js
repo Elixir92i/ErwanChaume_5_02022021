@@ -3,8 +3,6 @@ let userCart = JSON.parse(localStorage.getItem("userCart"));
 addCart = () => {
     const $form = document.getElementById('form');
 
-    /*let inputBuy = document.getElementById("ajouterProduitPanier");
-    inputBuy.addEventListener("click", async function () {*/
     $form.addEventListener('submit', (e) => {
         e.preventDefault();
 
@@ -19,7 +17,7 @@ addCart = () => {
         }
 
         if (hasError) {
-            return ;
+            return;
         }
 
         const urlParams = new URLSearchParams(window.location.search)
@@ -35,28 +33,54 @@ addCart = () => {
 
         let userCart = JSON.parse(localStorage.getItem("userCart"));
 
-        if (!userCart.includes(item)) {
+        var isInUserCart = false;
+        userCart.forEach (element => {
+            if (productId == element.id) {
+                isInUserCart = true;
+            }
+        });
+        if (!isInUserCart) {
             userCart.push(item);
             localStorage.setItem("userCart", JSON.stringify(userCart));
-            document.getElementById('success_type').innerText = "Produit ajouté au panier !"
+            window.location.reload();
         }
     });
     function formToJson($form) {
         const result = {};
         const formData = new FormData($form);
-    
+
         Array.from(formData.keys()).forEach((key) => {
-          result[key] = formData.get(key);
-      })
-      
-      return result;
+            result[key] = formData.get(key);
+        })
+
+        return result;
     }
 };
 
-addition = () => {
+cartInfo = () => {
+    var x = 0
+    if (JSON.parse(localStorage.getItem("userCart")).length > 0) {
+        let infoCart = document.createElement("div")
+        infoCart.setAttribute("id", "pastille")
+        document.getElementById("info-cart").appendChild(infoCart)
+    };
+    for (i = 0; i < userCart.length; i++) {
+        x = userCart.length
+        document.getElementById("pastille").innerHTML = x;
+    }
 
+}
+
+addition = () => {
+    if (JSON.parse(localStorage.getItem("userCart")).length <= 0) {
+        document.getElementById("totalPrice").style.display = "none";
+    }
     if (JSON.parse(localStorage.getItem("userCart")).length > 0) {
         document.getElementById("basket-resume").remove();
+
+        let createTotal = document.createElement("div");
+        createTotal.setAttribute("id", "totalCart");
+        document.getElementById("totalPrice").appendChild(createTotal);
 
         var products = localStorage.key("userCart");
         var listOfProducts = JSON.parse(localStorage.getItem(products));
@@ -78,9 +102,9 @@ addition = () => {
                 const $newTemplateCamera = $templateCamera.cloneNode(true);
                 $newTemplateCamera.querySelector('.camera_image').src = data[element].imageUrl
                 $newTemplateCamera.querySelector('.camera_name').innerHTML = data[element].name
-                $newTemplateCamera.querySelector('.camera_lense').innerHTML = data[element].lenses[0]
-                $newTemplateCamera.querySelector('.camera_price').innerHTML = data[element].price / 100 + "€"
-                $newTemplateCamera.getElementById('remove_product').innerHTML = '<button class="cancelProduct">Supprimer<i class="fas fa-trash-alt"></i></button>'
+                $newTemplateCamera.querySelector('.camera_lense').innerHTML = '<span>Objectif: </span> ' + data[element].lenses[0]
+                $newTemplateCamera.querySelector('.camera_price').innerHTML = '<span>Prix: </span> ' + " " + data[element].price / 100 + "€"
+                $newTemplateCamera.getElementById('remove_product').innerHTML = '<button class="cancelProduct"><i class="fas fa-trash-alt"></i> <span class="delete-btn">Supprimer</span></button>'
 
                 $cameras.append($newTemplateCamera);
 
@@ -94,28 +118,19 @@ addition = () => {
                 });
                 i++;
 
-                /*let deleteProduct = document.getElementById("camerasCart");
-                deleteProduct.appendChild(removeProduct);
-
-                let ligneProduct = document.querySelector('.camera_name')
-                ligneProduct.setAttribute("id", "product" + i);*/
+                let totalPrice = 0
+                for (element in data) {
+                    totalPrice += data[element].price / 100;
+                };
+                console.log(totalPrice)
+                document.getElementById("totalCart").innerHTML = '<span>Total du panier: </span>' + totalPrice + '€'
             };
         });
     };
 }
 
 cancelProduct = (i) => {
-    console.log("Enlever le Product à l'index" + i);
-
     userCart.splice(i, 1);
-    console.log(userCart);
-
-    localStorage.clear();
-    console.log("localStorage vidé");
-
     localStorage.setItem('userCart', JSON.stringify(userCart));
-    console.log("localStorage mis à jour");
-
     window.location.reload();
-
 }

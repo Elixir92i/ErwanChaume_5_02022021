@@ -43,7 +43,7 @@
     <header>
         <a class="logonavbar" href="index.html"><img src="./logo.png" alt="Logo de la marque Orinoco"></a>
         <div class="topnav" id="myTopnav">
-            <a href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+            <a href="cart.html" id="info-cart"><i class="fas fa-shopping-cart"></i></a>
             <a href="#popup">Contact</a>
             <a href="index.html">Home</a>
             <a href="javascript:void(0);" class="icon" onclick="myFunction()">
@@ -53,50 +53,97 @@
     </header>
 
     <!-- CART -->
-        <section class="basket">
-            <div id="camerasCart">
+    <section class="basket">
+        <div id="camerasCart">
 
-            </div>
-            <template id="cameras_template">
-                <div class="product_cart" id="product_cart">
-                    <img class="camera_image">
-                    <div class="camera_name"></div>
-                    <div class="camera_lense"></div>
-                    <div class="camera_price"></div>
-                    <div id="remove_product"></div>
+        </div>
+        <div id="totalPrice">
+            <form class="shipping">
+                <div class="userInfo">
+                    <h3>Informations de livraison</h3>
+                    <label for="fname">Nom complet</label>
+                    <input type="text" id="fname" name="firstname" placeholder="NOM Prénom" required>
+
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="email@example.com" required>
+
+                    <label for="adr">Adresse</label>
+                    <input type="text" id="adr" name="address" placeholder="" required>
+
+                    <label for="city">Ville</label>
+                    <input type="text" id="city" name="city" placeholder="Lyon" required>
+
+                    <label for="zip">Code postal</label>
+                    <input type="text" id="zip" name="zip" placeholder="69000" required>
                 </div>
-            </template>
+                <div class="userPayment">
+                    <h3>Informations de paiement</h3>
+                    <label for="cname">Nom sur la carte</label>
+                    <input type="text" id="cname" name="cardname" placeholder="Nom complet" required>
 
-            <div id="basket-resume">
-                <p id="emptyCart">Votre panier est vide !</p>
-            </div>
-        </section>
+                    <label for="ccnum">Numéro de carte</label>
+                    <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444" required>
 
-        <!-- FOOTER -->
-        <footer>
-            <div class="about">
-                <p>À propos</p>
-                <ul>
-                    <li><a href="#">Qui sommes-nous ?</a></li>
-                    <li><a href="#">Conditions générales de vente</a></li>
-                    <li><a href="#">Données et confidentialité</a></li>
-                </ul>
+                    <label for="expmonth">Date d'expiration</label>
+                    <input type="month" id="expmonth" name="expmonth" required>
+
+                    <label for="cvv">CVV</label>
+                    <input type="text" id="cvv" name="cvv" placeholder="352" required>
+                    <button type="submit" class="submit-btn">Finaliser la commande</button>
+                </div>
+
+            </form>
+
+        </div>
+        <template id="cameras_template">
+            <div class="product_cart" id="product_cart">
+                <img class="camera_image">
+                <div class="product_desc">
+                    <div class="desc_left">
+                        <h2 class="camera_name"></h2>
+                        <p class="camera_lense"></p>
+                    </div>
+                    <div class="desc_right">
+                        <p class="camera_price"></p>
+                        <div id="remove_product"></div>
+                    </div>
+                </div>
             </div>
-            <div class="assistance">
-                <p>Assistance</p>
-                <ul>
-                    <li><a href="#">Centre d'aide</a></li>
-                    <li><a href="#popup">Nous contacter</a></li>
-                </ul>
-            </div>
-        </footer>
+        </template>
+
+        <div id="basket-resume">
+            <p id="emptyCart">Votre panier est vide !</p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="about">
+            <p>À propos</p>
+            <ul>
+                <li><a href="#">Qui sommes-nous ?</a></li>
+                <li><a href="#">Conditions générales de vente</a></li>
+                <li><a href="#">Données et confidentialité</a></li>
+            </ul>
+        </div>
+        <div class="assistance">
+            <p>Assistance</p>
+            <ul>
+                <li><a href="#">Centre d'aide</a></li>
+                <li><a href="#popup">Nous contacter</a></li>
+            </ul>
+        </div>
+    </footer>
 
     <!-- SCRIPTS -->
     <script src="js/Camera.js"></script>
     <script src="js/navBar.js"></script>
     <script src="js/carttest.js"></script>
+    <script src="js/form.js"></script>
     <script>
         addition();
+        cartInfo();
+        checkInput();
     </script>
 
 </body>

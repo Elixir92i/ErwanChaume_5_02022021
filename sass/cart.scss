@@ -10,6 +10,10 @@ body {
     margin: auto;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 /*##### POP-UP #####*/
 .overlay {
     position: fixed;
@@ -150,10 +154,35 @@ textarea {
 @import "./navbar.scss";
 
 /*##### CART #####*/
+.title {
+    height: 120px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    h1 {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .fas {
+        font-size: 30px;
+    }
+    a {
+        color: $light-grey;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        height: 40px;
+        width: 40px;
+        background-color: $dark-grey;
+        border-radius: 50%;
+    }
+}
 .basket {
     background-color: $light-grey;
-    margin-top: 61px;
-    margin-bottom: 61px;
+    //margin-top: 61px;
+    //margin-bottom: 61px;
     min-height: 550px;
     display: flex;
     align-items: center;
@@ -195,14 +224,15 @@ textarea {
         align-items: center;
         width: 80%;
         height: 100%;
-        flex-wrap: wrap;
         .desc_left {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 50%;
+            width: 40%;
+            margin-left: 20px;
             .camera_name {
                 width: 50%;
+                margin-right: 5px;
             }
             .camera_lense {
                 width: 50%;
@@ -214,10 +244,10 @@ textarea {
         .desc_right {
             display: flex;
             align-items: center;
-            justify-content: center;
-            width: 50%;
+            justify-content: space-evenly;
+            width: 60%;
             .camera_price {
-                width: 50%;
+                //width: 50%;
                 span {
                     margin-right: 5px;
                 }
@@ -229,7 +259,7 @@ textarea {
                 border: none;
                 outline: none;
                 text-decoration: none;
-                width: 100%;
+                width: 82px;
                 height: 40px;
                 display: flex;
                 text-align: center;
@@ -243,19 +273,65 @@ textarea {
                 font-size: 14px;
                 font-weight: bold;
                 cursor: pointer;
+                transition: 250ms ease;
                 .fas {
                     display: none;
+                    transition: 250ms ease;
+                }
+                .delete-btn {
+                    transition: 250ms ease;
+                }
+                &:hover {
+                    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
+                    .fas {
+                        display: inherit;
+                    }
+                    .delete-btn {
+                        display: none;
+                    }
                 }
             }
         }
     }
 }
+.more, .less{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    cursor: pointer;
+    width: 19px;
+    background-color: $light-grey;
+    color: $dark-grey;
+    font-weight: bold;
+    border-radius: 5px;
+    border: $dark-grey 1px solid;
+}
+
+.more{
+    margin-bottom: 5px;
+    transition: 250ms ease;
+    &:hover{
+        background-color: #4BB543;
+        color: white;
+    }
+}
+.less{
+    margin-top: 5px;
+    transition: 250ms ease;
+    &:hover{
+        background-color: red;
+        color: white;
+    }
+}
+
+
+
 span {
     font-weight: bold;
 }
 
 #camerasCart {
-    width: 100%;
+    width: 85%;
 }
 
 #totalPrice {
@@ -271,10 +347,37 @@ span {
     border-radius: 15px;
     margin-bottom: 20px;
 }
+#totalCart {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+    border: 5px solid #f0f0f0;
+    background-color: #f0f0f0;
+    border-radius: 15px;
+    box-shadow: 0px 0px 15px -5px rgba(0, 0, 0, 0.75);
+    span {
+        margin-right: 5px;
+    }
+}
 
 .shipping {
     display: flex;
     flex-direction: row;
+    .info {
+        font-weight: bold;
+        position: relative;
+        padding-bottom: 8px;
+        &::after {
+            content: "";
+            background-color: $dark-grey;
+            width: 40px;
+            height: 3px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+    }
     input {
         width: 95%;
         margin-bottom: 10px;
@@ -293,7 +396,8 @@ span {
         border: none;
         outline: none;
         text-decoration: none;
-        width: 98%;
+        margin: auto;
+        margin-top: 19px;
         height: 39px;
         display: flex;
         text-align: center;
@@ -307,6 +411,10 @@ span {
         font-size: 14px;
         font-weight: bold;
         cursor: pointer;
+        transition: 250ms ease;
+        &:hover {
+            box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
+        }
     }
 }
 
@@ -355,6 +463,9 @@ footer {
 
 /*##### MEDIAS #####*/
 @media (max-width: 1440px) {
+    #camerasCart{
+        width: 100%;
+    }
 }
 
 @media (max-width: 1024px) {
@@ -364,6 +475,9 @@ footer {
 }
 
 @media (max-width: 950px) {
+    #camerasCart {
+        width: 100%;
+    }
     .product_cart {
         img {
             width: 40%;
@@ -375,6 +489,7 @@ footer {
                 align-items: flex-start;
                 flex-direction: column;
                 height: 100%;
+                margin-left: inherit;
                 .camera_name {
                     width: 95%;
                     margin-left: 5%;
@@ -406,7 +521,24 @@ footer {
             }
         }
     }
+    .quantityCheck{
+        display: flex;
+        flex-direction: row-reverse;
+        span{
+            display: none;
+        }
+        .more{
+            margin-bottom: 0;
+            margin-left: 10px;
+        }
+        .less{
+            margin-top: 0;
+            margin-right: 10px;
+    
+        }
+    }
 }
+
 
 @media (max-width: 650px) {
     .product_cart {
@@ -424,14 +556,14 @@ footer {
             }
         }
     }
-    #totalPrice{
+    #totalPrice {
         width: 95%;
-        .shipping{
+        .shipping {
             flex-direction: column;
-            .userInfo{
+            .userInfo {
                 width: 90%;
             }
-            .userPayment{
+            .userPayment {
                 width: 90%;
             }
         }
@@ -476,6 +608,12 @@ footer {
                 align-items: inherit;
                 flex-direction: row;
                 width: 100%;
+                position: relative;
+                .quantityCheck {
+                    position: absolute;
+                    top: -33px;
+                    margin-left: 5%;
+                }
                 .camera_price {
                     justify-content: inherit;
                     margin: 0;
@@ -497,4 +635,7 @@ footer {
 }
 
 @media (max-width: 375px) {
+    footer {
+        padding-left: 25px;
+    }
 }

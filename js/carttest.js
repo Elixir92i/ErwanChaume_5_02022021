@@ -22,8 +22,11 @@ addCart = () => {
 
         const urlParams = new URLSearchParams(window.location.search)
         const productId = urlParams.get('id')
+        let selectQuantity = document.getElementById("productQuantity");
+        let selectedQuantity = selectQuantity.options[selectQuantity.selectedIndex].value;
         const item = {
             "id": productId,
+            "quantity": selectedQuantity
         };
 
         if (!localStorage.getItem("userCart")) {
@@ -34,7 +37,7 @@ addCart = () => {
         let userCart = JSON.parse(localStorage.getItem("userCart"));
 
         var isInUserCart = false;
-        userCart.forEach (element => {
+        userCart.forEach(element => {
             if (productId == element.id) {
                 isInUserCart = true;
             }
@@ -105,6 +108,7 @@ addition = () => {
                 $newTemplateCamera.querySelector('.camera_lense').innerHTML = '<span>Objectif: </span> ' + data[element].lenses[0]
                 $newTemplateCamera.querySelector('.camera_price').innerHTML = '<span>Prix: </span> ' + " " + data[element].price / 100 + "€"
                 $newTemplateCamera.getElementById('remove_product').innerHTML = '<button class="cancelProduct"><i class="fas fa-trash-alt"></i> <span class="delete-btn">Supprimer</span></button>'
+                $newTemplateCamera.querySelector('.quantityCheck').innerHTML = '<div data-id="' + data[element]._id + '" class="more">+</div><span>Quantité: </span>' + listOfProducts[element].quantity + '<div data-id="' + data[element]._id + '" class="less">-</div>';
 
                 $cameras.append($newTemplateCamera);
 
@@ -112,7 +116,6 @@ addition = () => {
                 removeProduct.setAttribute("id", "remove" + i);
 
                 const index = i
-
                 removeProduct.addEventListener('click', () => {
                     cancelProduct(index)
                 });
@@ -120,11 +123,37 @@ addition = () => {
 
                 let totalPrice = 0
                 for (element in data) {
-                    totalPrice += data[element].price / 100;
+                    totalPrice += data[element].price * listOfProducts[element].quantity / 100;
                 };
                 console.log(totalPrice)
                 document.getElementById("totalCart").innerHTML = '<span>Total du panier: </span>' + totalPrice + '€'
             };
+            document.addEventListener('click', e => {
+                if (!e.target.classList.contains("less")) {
+                    return;
+                }
+                for (element in listOfProducts) {
+                    if (listOfProducts[element].id == e.target.dataset.id & listOfProducts[element].quantity > 1) {
+                        listOfProducts[element].quantity--;
+                        window.location.reload();
+                    }
+                }
+                localStorage.setItem("userCart", JSON.stringify(listOfProducts));
+            });
+
+            document.addEventListener("click", e => {
+                if (!e.target.classList.contains("more")) {
+                    return;
+                }
+
+                for (element in listOfProducts) {
+                    if (listOfProducts[element].id == e.target.dataset.id) {
+                        listOfProducts[element].quantity++;
+                        window.location.reload();
+                    }
+                }
+                localStorage.setItem("userCart", JSON.stringify(listOfProducts));
+            });
         });
     };
 }

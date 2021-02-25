@@ -136,7 +136,7 @@ textarea {
     box-shadow: 10px 7px 26px -16px rgba(0, 0, 0, 1);
     transition-duration: 150ms;
     &:hover {
-        box-shadow: 0px 0px 15px -5px rgba(0, 0, 0, 0.75);
+            box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75);
     }
 }
 
@@ -174,6 +174,7 @@ textarea {
     width: 100%;
     padding-top: 30px;
     padding-bottom: 30px;
+    margin-bottom: 50px;
 }
 
 .recap {
@@ -192,19 +193,15 @@ textarea {
     }
 }
 .shopping_cart {
-    width: 40%;
-    .fas {
-        width: 100%;
-        font-size: 90px;
-        text-align: center;
-        display: flex;
-        justify-content: center;
-        margin-top: 10px;
-        margin-left: -10px;
-        color: $dark-grey;
-    }
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+
     .checkout_cart {
-        margin-top: 10px;
+        //margin-top: 10px;
         text-decoration: none;
         width: 100%;
         height: 38%;
@@ -217,18 +214,13 @@ textarea {
         background: rgb(230, 133, 0);
         background: linear-gradient(132deg, rgb(230, 133, 0) 0%, rgb(137, 82, 254) 98%);
         box-shadow: 0px 0px 15px -5px rgb(0, 0, 0);
+        transition: 250ms ease;
+        &:hover{
+            box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75);
+        }
         .fas {
             display: none;
         }
-    }
-}
-.recap_cart {
-    width: 60%;
-    margin-left: 2%;
-    h2 {
-        height: 20%;
-        margin: 0;
-        padding: 0;
     }
 }
 
@@ -317,7 +309,10 @@ textarea {
         background: rgb(230, 133, 0);
         background: linear-gradient(132deg, rgb(230, 133, 0) 0%, rgb(137, 82, 254) 98%);
         box-shadow: 0px 0px 15px -5px rgb(0, 0, 0);
-        transition: 250ms;
+        transition: 250ms ease;
+        &:hover{
+            box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75);
+        }
     }
 }
 
@@ -428,50 +423,10 @@ footer {
         }
     }
     .recap{
-        display: flex;
-        flex-direction: row-reverse;
-    }
-    .recap_cart{
-        width: 100%;
-        h2{
-            height: 20%;
-            justify-content: center;
-            align-items: center;
-            margin-top: 10px;
-        }
-    }
-    #filled_cart{
-        height: 80%;
-    }
-    .shopping_cart {
-        width: 60px;
-        .fas{
-            display: none;
-            color: white;
-        }
-        .checkout_cart {
-            position: absolute;
-            margin-top: 10px;
-            text-decoration: none;
-            width: 45px;
-            height: 45px;
-            display: flex;
-            text-align: center;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            border-radius: 15px;
-            background: rgb(230, 133, 0);
-            background: linear-gradient(132deg, rgb(230, 133, 0) 0%, rgb(137, 82, 254) 98%);
-            box-shadow: 0px 0px 15px -5px rgb(0, 0, 0);
-            .fas {
-                display: inline;
-                font-size: 20px;
-                margin-left: 0;
-                margin-top: 0;
-            }
-            p {
-                display: none;
+        .shopping_cart{
+            p{
+                margin: 0;
+                margin-top: 5px;
             }
         }
     }
@@ -483,6 +438,12 @@ footer {
         .assistance {
             width: 80%;
         }
+    }
+}
+
+@media (max-width: 375px) {
+    footer {
+        padding-left: 25px;
     }
 }
 

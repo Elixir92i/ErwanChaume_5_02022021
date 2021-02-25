@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/png" href="favicon.png" />
-    <title>Votre panier | Orinoco</title>
+    <title>Orinoco | Votre panier</title>
 </head>
 
 <body>
@@ -24,7 +24,7 @@
                 <p>Vous avez des questions sur nos produits ? Ou sur la livraison ?
                     Alors envoyez nous un e-mail à l'adresse suivante: <span class="emailbold"><a
                             href="mailto:">contact@orinoco.fr</a></span>.
-                    <br />Ou utiliser simplement la messagerie intégrée !
+                    <br />Ou utilisez simplement la messagerie intégrée !
                 </p>
                 <form>
                     <div class="type">
@@ -40,7 +40,7 @@
     </div>
 
     <!-- HEADER -->
-    <header>
+    <header id="header">
         <a class="logonavbar" href="index.html"><img src="./logo.png" alt="Logo de la marque Orinoco"></a>
         <div class="topnav" id="myTopnav">
             <a href="cart.html" id="info-cart"><i class="fas fa-shopping-cart"></i></a>
@@ -53,6 +53,10 @@
     </header>
 
     <!-- CART -->
+    <section class="title">
+        <h1>Récapitulatif de votre panier:</h1>
+        <a href="#totalCart"><i class="fas fa-chevron-down"></i></a>
+    </section>
     <section class="basket">
         <div id="camerasCart">
 
@@ -60,7 +64,7 @@
         <div id="totalPrice">
             <form class="shipping">
                 <div class="userInfo">
-                    <h3>Informations de livraison</h3>
+                    <h3 class="info">Informations de livraison</h3>
                     <label for="fname">Nom complet</label>
                     <input type="text" id="fname" name="firstname" placeholder="NOM Prénom" required>
 
@@ -77,7 +81,7 @@
                     <input type="text" id="zip" name="zip" placeholder="69000" required>
                 </div>
                 <div class="userPayment">
-                    <h3>Informations de paiement</h3>
+                    <h3 class="info">Informations de paiement</h3>
                     <label for="cname">Nom sur la carte</label>
                     <input type="text" id="cname" name="cardname" placeholder="Nom complet" required>
 
@@ -104,6 +108,7 @@
                         <p class="camera_lense"></p>
                     </div>
                     <div class="desc_right">
+                        <p class="quantityCheck"></p>
                         <p class="camera_price"></p>
                         <div id="remove_product"></div>
                     </div>
@@ -115,7 +120,9 @@
             <p id="emptyCart">Votre panier est vide !</p>
         </div>
     </section>
-
+    <div class="title">
+        <a href="#header"><i class="fas fa-chevron-up"></i></a>
+    </div>
     <!-- FOOTER -->
     <footer>
         <div class="about">

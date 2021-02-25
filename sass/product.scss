@@ -210,6 +210,11 @@ textarea {
         box-shadow: 0px 0px 15px -5px rgb(0, 0, 0);
         font-size: 16px;
         font-weight: bold;
+        cursor: pointer;
+        transition: 250ms ease;
+        &:hover{
+            box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75);
+        }
     }
     .error{
         color: red;
@@ -226,6 +231,10 @@ textarea {
 select {
     width: 90%;
     height: 30px;
+}
+
+#productQuantity{
+    width: 40px;
 }
 
 #camera_image {
@@ -359,5 +368,8 @@ footer {
         padding-bottom: 20px;
         padding-right: 10px;
         padding-left: 10px;
+    }
+    footer {
+        padding-left: 25px;
     }
 }

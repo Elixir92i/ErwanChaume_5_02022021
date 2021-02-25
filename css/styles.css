@@ -117,7 +117,7 @@ textarea {
   box-shadow: 10px 7px 26px -16px black;
   transition-duration: 150ms; }
   .submit:hover {
-    box-shadow: 0px 0px 15px -5px rgba(0, 0, 0, 0.75); }
+    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75); }
 
 /*##### HEADER #####*/
 .logonavbar {
@@ -215,7 +215,8 @@ body {
   background-color: #f0f0f0;
   width: 100%;
   padding-top: 30px;
-  padding-bottom: 30px; }
+  padding-bottom: 30px;
+  margin-bottom: 50px; }
 
 .recap {
   background-color: white;
@@ -232,18 +233,13 @@ body {
     box-shadow: 0px 0px 15px -1px rgba(0, 0, 0, 0.75); }
 
 .shopping_cart {
-  width: 40%; }
-  .shopping_cart .fas {
-    width: 100%;
-    font-size: 90px;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-    margin-left: -10px;
-    color: #828282; }
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center; }
   .shopping_cart .checkout_cart {
-    margin-top: 10px;
     text-decoration: none;
     width: 100%;
     height: 38%;
@@ -255,17 +251,12 @@ body {
     border-radius: 15px;
     background: #e68500;
     background: linear-gradient(132deg, #e68500 0%, #8952fe 98%);
-    box-shadow: 0px 0px 15px -5px black; }
+    box-shadow: 0px 0px 15px -5px black;
+    transition: 250ms ease; }
+    .shopping_cart .checkout_cart:hover {
+      box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75); }
     .shopping_cart .checkout_cart .fas {
       display: none; }
-
-.recap_cart {
-  width: 60%;
-  margin-left: 2%; }
-  .recap_cart h2 {
-    height: 20%;
-    margin: 0;
-    padding: 0; }
 
 .camera {
   background-color: white;
@@ -338,7 +329,9 @@ body {
     background: #e68500;
     background: linear-gradient(132deg, #e68500 0%, #8952fe 98%);
     box-shadow: 0px 0px 15px -5px black;
-    transition: 250ms; }
+    transition: 250ms ease; }
+    .card_2 .moreinfo:hover {
+      box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75); }
 
 /*##### FOOTER #####*/
 footer {
@@ -422,53 +415,17 @@ footer {
       margin-bottom: 0px;
       height: 25%; }
 
-  .recap {
-    display: flex;
-    flex-direction: row-reverse; }
-
-  .recap_cart {
-    width: 100%; }
-    .recap_cart h2 {
-      height: 20%;
-      justify-content: center;
-      align-items: center;
-      margin-top: 10px; }
-
-  #filled_cart {
-    height: 80%; }
-
-  .shopping_cart {
-    width: 60px; }
-    .shopping_cart .fas {
-      display: none;
-      color: white; }
-    .shopping_cart .checkout_cart {
-      position: absolute;
-      margin-top: 10px;
-      text-decoration: none;
-      width: 45px;
-      height: 45px;
-      display: flex;
-      text-align: center;
-      justify-content: center;
-      align-items: center;
-      color: white;
-      border-radius: 15px;
-      background: #e68500;
-      background: linear-gradient(132deg, #e68500 0%, #8952fe 98%);
-      box-shadow: 0px 0px 15px -5px black; }
-      .shopping_cart .checkout_cart .fas {
-        display: inline;
-        font-size: 20px;
-        margin-left: 0;
-        margin-top: 0; }
-      .shopping_cart .checkout_cart p {
-        display: none; }
+  .recap .shopping_cart p {
+    margin: 0;
+    margin-top: 5px; }
 
   footer .about {
     width: 80%; }
   footer .assistance {
     width: 80%; } }
+@media (max-width: 375px) {
+  footer {
+    padding-left: 25px; } }
 @media (max-width: 300px) {
   .card_2 .camera_name {
     height: 30%; }

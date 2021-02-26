@@ -2,7 +2,7 @@
 <html lang="fr">
 
 <head>
-    <link rel="stylesheet" type="text/css" href="./CSS/styles.css">
+    <link rel="stylesheet" type="text/css" href="./CSS/index.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
@@ -11,7 +11,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/png" href="favicon.png" />
-    <meta name="description" content="Orinoco est une boutique en ligne spécialisée dans la vente d'appareils photo vintage !">
+    <meta name="description"
+        content="Orinoco est une boutique en ligne spécialisée dans la vente d'appareils photo vintage !">
     <title>Orinoco | Achat appareils photo vintage !</title>
 </head>
 
@@ -54,24 +55,23 @@
     </header>
 
     <!-- INFO -->
-    <section class="info">
-        <h1>Bienvenue chez Orinoco !</h1>
-    </section>
+    <section class="productList">
+        <h1 class="info">Bienvenue chez Orinoco !</h1>
 
-    <!-- PRODUCTS -->
-    <section class="bg_product">
-        <div id="cameras">
-            <div class="recap" id="recap">
-                <div class="shopping_cart">
-                    <p>Trouvez un large choix d’appareils photo vintage en parfait état de fonctionnement ! Nos
-                        appareils
-                        photo sont disponibles avec différents objectifs selon les stocks.</p>
-                    <a href="cart.html" class="checkout_cart">
-                        <p>Finaliser votre commande</p>
-                    </a>
+        <!-- PRODUCTS -->
+        <div class="bg_product">
+            <div id="cameras">
+                <div class="recap" id="recap">
+                    <div class="shopping_cart">
+                        <p>Trouvez un large choix d’appareils photo vintage en parfait état de fonctionnement ! Nos
+                            appareils
+                            photo sont disponibles avec différents objectifs selon les stocks.</p>
+                        <a href="cart.html" class="checkout_cart">
+                            <p>Finaliser votre commande</p>
+                        </a>
+                    </div>
                 </div>
             </div>
-
         </div>
     </section>
 
@@ -115,7 +115,7 @@
     <script src="js/Camera.js"></script>
     <script src="js/listCameras.js"></script>
     <script src="js/navBar.js"></script>
-    <script src="js/carttest.js"></script>
+    <script src="js/cart.js"></script>
     <script>
         cartInfo();
     </script>

@@ -6,6 +6,86 @@ body {
   min-width: 280px;
   margin: auto; }
 
+html {
+  scroll-behavior: smooth; }
+
+/*##### @import #####*/
+/* ##### MIXINS #####*/
+/*##### HEADER #####*/
+.logonavbar {
+  position: absolute;
+  margin-left: 10px;
+  top: 8px; }
+
+/*##### NAVBAR #####*/
+body {
+  font-family: "Roboto";
+  min-width: 280px; }
+
+.topnav {
+  overflow: hidden;
+  background-color: #f0f0f0; }
+  .topnav a {
+    float: right;
+    display: block;
+    color: #828282;
+    text-align: center;
+    padding: 25px 25px;
+    text-decoration: none;
+    font-size: 18px; }
+    .topnav a:hover {
+      background-color: #828282;
+      color: #f0f0f0; }
+  .topnav .icon {
+    display: none; }
+
+#info-cart {
+  position: relative; }
+
+#pastille {
+  position: absolute;
+  left: 5px;
+  bottom: 5px;
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  background-color: red;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: flex; }
+
+@media screen and (max-width: 600px) {
+  .topnav a {
+    display: none; }
+
+  .topnav a.icon {
+    float: right;
+    display: block; }
+
+  .topnav.responsive {
+    padding-top: 70px;
+    transition: 500ms ease; }
+
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0; }
+
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left; }
+
+  #pastille {
+    bottom: inherit;
+    left: inherit;
+    top: 27px;
+    right: 27px; } }
+/* ##### MIXINS #####*/
 /*##### POP-UP #####*/
 .overlay {
   position: fixed;
@@ -117,90 +197,64 @@ textarea {
   box-shadow: 10px 7px 26px -16px black;
   transition-duration: 150ms; }
   .submit:hover {
-    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75); }
+    box-shadow: 0px 0px 15px -5px rgba(0, 0, 0, 0.75); }
 
-/*##### HEADER #####*/
-.logonavbar {
-  position: absolute;
-  margin-left: 10px;
-  top: 8px; }
-
+@media (max-width: 1024px) {
+  .popupcontent {
+    width: 60%; } }
+@media (max-width: 550px) {
+  .popupcontent {
+    width: 85%; } }
 /* ##### MIXINS #####*/
-/*##### NAVBAR #####*/
-body {
-  font-family: "Roboto";
-  min-width: 280px; }
-
-.topnav {
-  overflow: hidden;
-  background-color: #f0f0f0; }
-  .topnav a {
-    float: right;
-    display: block;
-    color: #828282;
-    text-align: center;
-    padding: 25px 25px;
+/*##### FOOTER #####*/
+footer {
+  background-color: #828282;
+  color: #f0f0f0;
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 30px;
+  padding-left: 50px;
+  padding-bottom: 35px; }
+  footer p {
+    font-size: 20px;
+    padding-bottom: 8px;
+    position: relative; }
+    footer p::after {
+      content: "";
+      background-color: #f0f0f0;
+      width: 40px;
+      height: 3px;
+      position: absolute;
+      bottom: 0;
+      left: 0; }
+  footer li {
+    list-style: none;
+    line-height: 30px; }
+  footer ul {
+    padding: 0;
+    margin: 0; }
+  footer a {
     text-decoration: none;
-    font-size: 18px; }
-    .topnav a:hover {
-      background-color: #828282;
-      color: #f0f0f0; }
-  .topnav .icon {
-    display: none; }
+    color: #f0f0f0; }
+  footer .about {
+    width: 50%; }
+  footer .assistance {
+    width: 50%; }
 
-#info-cart {
-  position: relative; }
-
-#pastille {
-  position: absolute;
-  left: 5px;
-  bottom: 5px;
-  width: 20px;
-  height: 20px;
-  border-radius: 4px;
-  background-color: red;
-  color: white;
-  font-size: 16px;
-  font-weight: bold;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-  display: flex; }
-
-@media screen and (max-width: 600px) {
-  .topnav a {
-    display: none; }
-
-  .topnav a.icon {
-    float: right;
-    display: block; }
-
-  .topnav.responsive {
-    padding-top: 70px;
-    transition: 500ms ease; }
-
-  .topnav.responsive .icon {
-    position: absolute;
-    right: 0;
-    top: 0; }
-
-  .topnav.responsive a {
-    float: none;
-    display: block;
-    text-align: left; }
-
-  #pastille {
-    bottom: inherit;
-    left: inherit;
-    top: 27px;
-    right: 27px; } }
+@media (max-width: 450px) {
+  footer .about {
+    width: 80%; }
+  footer .assistance {
+    width: 80%; } }
+@media (max-width: 375px) {
+  footer {
+    padding-left: 25px; } }
 /*##### INFO #####*/
 .info {
   text-align: center;
   line-height: 25px;
-  padding: 30px; }
-  .info h1 {
-    font-size: 30px; }
+  padding: 30px;
+  font-size: 30px; }
 
 /*##### PRODUCTS #####*/
 #cameras {
@@ -333,41 +387,6 @@ body {
     .card_2 .moreinfo:hover {
       box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75); }
 
-/*##### FOOTER #####*/
-footer {
-  background-color: #828282;
-  color: #f0f0f0;
-  display: flex;
-  flex-wrap: wrap;
-  padding-top: 30px;
-  padding-left: 50px;
-  padding-bottom: 35px; }
-  footer p {
-    font-size: 20px;
-    padding-bottom: 8px;
-    position: relative; }
-    footer p::after {
-      content: "";
-      background-color: #f0f0f0;
-      width: 40px;
-      height: 3px;
-      position: absolute;
-      bottom: 0;
-      left: 0; }
-  footer li {
-    list-style: none;
-    line-height: 30px; }
-  footer ul {
-    padding: 0;
-    margin: 0; }
-  footer a {
-    text-decoration: none;
-    color: #f0f0f0; }
-  footer .about {
-    width: 50%; }
-  footer .assistance {
-    width: 50%; }
-
 /*##### MEDIAS #####*/
 @media (max-width: 1620px) {
   .camera_price {
@@ -417,19 +436,11 @@ footer {
 
   .recap .shopping_cart p {
     margin: 0;
-    margin-top: 5px; }
-
-  footer .about {
-    width: 80%; }
-  footer .assistance {
-    width: 80%; } }
-@media (max-width: 375px) {
-  footer {
-    padding-left: 25px; } }
+    margin-top: 5px; } }
 @media (max-width: 300px) {
   .card_2 .camera_name {
     height: 30%; }
   .card_2 .moreinfo {
     height: 30%; } }
 
-/*# sourceMappingURL=styles.css.map */
+/*# sourceMappingURL=index.css.map */

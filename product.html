@@ -15,6 +15,7 @@
 </head>
 
 <body>
+
     <!-- Pop-up -->
     <div class="overlay" id="popup">
         <div class="popupcontent">
@@ -55,13 +56,13 @@
     <!-- PRODUCTS -->
     <section class="bg-product">
         <div class="product">
-            <img id="camera_image">
+            <img id="camera_image" src="#" alt="Appareil photo vintage">
             <div class="card_1">
-                <h2 id="camera_name"></h2>
+                <h2 id="camera_name">Camera name</h2>
                 <p id="camera_description"></p>
                 <form id="form">
                     <select id="camera_lenses" name="type">
-                        <option value="" selected disabled required>Choisissez votre objectif</option>
+                        <option value="" selected disabled>Choisissez votre objectif</option>
                     </select>
                     <div class="error" id="errors_type"></div>
                     <p id="camera_price"></p>
@@ -81,6 +82,7 @@
             </div>
         </div>
     </section>
+
     <!-- FOOTER -->
     <footer>
         <div class="about">
@@ -104,7 +106,7 @@
     <script src="js/Camera.js"></script>
     <script src="js/navBar.js"></script>
     <script src="js/product.js"></script>
-    <script src="js/carttest.js"></script>
+    <script src="js/cart.js"></script>
     <script>
         addCart();
         cartInfo();

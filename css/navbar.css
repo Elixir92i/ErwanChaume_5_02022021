@@ -1,4 +1,10 @@
 /* ##### MIXINS #####*/
+/*##### HEADER #####*/
+.logonavbar {
+  position: absolute;
+  margin-left: 10px;
+  top: 8px; }
+
 /*##### NAVBAR #####*/
 body {
   font-family: "Roboto";

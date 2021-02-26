@@ -1,12 +1,14 @@
 async function main() {
     try {
+        // Récupération des informations présentes dans l'API
         const camerasRaw = await fetch('http://localhost:3000/api/cameras').then(r => r.json());
         const cameras = camerasRaw.map(value => new Camera(value))
 
-        
+        // Affichage des différents éléments
         const $cameras = document.getElementById('cameras')
         const $templateCamera = document.getElementById('cameras_template').content;
 
+        // Mise en place de la template pour chaque produit
         cameras.forEach(camera => {
             const $newTemplateCamera = $templateCamera.cloneNode(true);
             $newTemplateCamera.querySelector('.camera_name').innerText = camera.name

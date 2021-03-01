@@ -6,16 +6,16 @@ for (element in listOfProducts) {
 }
 
 function checkInput() {
-    //Controle Regex
+    // Controle Regex
     let checkString = /[a-zA-Z]/;
     let checkNumber = /[0-9]/;
     let checkMail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     let checkSpecialCharacter = /[§!@#$%^&*(),.?":{}|<>]/;
 
-    //message fin de controle
+    // Message fin de contrôle
     let checkMessage = "";
 
-    //Récupération des inputs
+    // Récupération des inputs
     let formLNom = document.getElementById("lname").value;
     let formFNom = document.getElementById("fname").value;
     let formMail = document.getElementById("mail").value;
@@ -23,6 +23,7 @@ function checkInput() {
     let formVille = document.getElementById("city").value;
     let formZip = document.getElementById("zip").value;
  
+    // Vérifie chaque input pour vérifier qu'ils ne comportent pas de caractères interdits
         if(checkNumber.test(formLNom) == true || checkSpecialCharacter.test(formLNom) == true || formLNom == ""){
         	checkMessage = "Vérifier/renseigner votre nom";
         }
@@ -55,12 +56,14 @@ function checkInput() {
     };
 
     function confirmOrder() {
-        /*Si le formulaire a passé la fonction de Check*/
+        // Si le formulaire a passé la fonction checkInput
         if (checkInput() == true) {
           let order = {
-            /*Récupère le tableau d'id des produits*/
+
+            // Récupère le tableau d'Id des produits
             products: productOrder,
-            /*Créé l'objet contact avec les informations récupérées dans le formulaire*/
+
+            // Créé l'objet contact avec les informations récupérées dans le formulaire
             contact: {
               lastName: document.getElementById("lname").value,
               firstName: document.getElementById("fname").value,
@@ -73,27 +76,29 @@ function checkInput() {
           let headers = {
             "Content-Type": "application/json"
           };
-          /*Envoie les informations à l'API dans le bon format*/
+
+          // Envoie les informations à l'API dans le bon format
           fetch('http://localhost:3000/api/cameras/order', {
             method: 'post',
             headers: headers,
             body: JSON.stringify(order),
       
-            /*Récupère la réponse envoyée par l'API*/
+            // Récupère la réponse envoyée par l'API
           }).then(function (response) {
             if (response.status == 201) {
               response.json().then(function (data) {
-                /*Vide le localStorage*/
                 localStorage.clear();
-                /*Envoie les informations renvoyées par l'API dans le sessionStorage*/
+
+                // Envoie les informations renvoyées par l'API dans le sessionStorage
                 sessionStorage.setItem("orderSum", JSON.stringify(data));
-                /*Ouvre une fenêtre avec un Query Param basé sur l'id de commande*/
+
+                // Ouvre une fenêtre avec une param basé sur l'Id de commande
                 window.open("\order.html?orderId=" + data.orderId);
                 window.location.reload();
               });
             }
           }).catch(function (err) {
-            window.alert("Impossible d'afficher les fichiers !")
+            window.alert("Une erreur est survenue, veuillez réessayer")
           });
         };
       }

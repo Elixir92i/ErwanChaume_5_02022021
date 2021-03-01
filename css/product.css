@@ -337,10 +337,6 @@ select {
   .product {
     width: 80%; } }
 @media (max-width: 900px) {
-  .bg-product {
-    margin-top: 0px;
-    margin-bottom: 0px; }
-
   .product {
     flex-direction: column; }
 
@@ -354,6 +350,10 @@ select {
     margin: auto;
     border-radius: 0 0 15px 15px;
     border: none; } }
+@media (max-width: 600px) {
+  .bg-product {
+    margin-top: 0px;
+    margin-bottom: 0px; } }
 @media (max-width: 450px) {
   #camera_image {
     width: 95%; }

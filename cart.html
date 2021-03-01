@@ -64,17 +64,25 @@
         <div id="totalPrice">
 
             <!-- FORM -->
-            <form class="shipping">
+            <form class="shipping" id="shipping">
                 <div class="userInfo">
                     <h3 class="info">Informations de livraison</h3>
-                    <label for="fname">Nom complet</label>
-                    <input type="text" id="fname" name="firstname" placeholder="NOM Prénom" required>
+                    <div class="fullname">
+                        <div class="lastname">
+                            <label for="fname">NOM</label>
+                            <input type="text" id="lname" name="lastname" placeholder="NOM" required>
+                        </div>
+                        <div class="firstname">
+                            <label for="fname">Prénom</label>
+                            <input type="text" id="fname" name="firstname" placeholder="Prénom" required>
+                        </div>
+                    </div>
 
                     <label for="email">Email</label>
                     <input type="email" id="mail" name="email" placeholder="email@example.com" required>
 
-                    <label for="adr">Adresse</label>
-                    <input type="text" id="adr" name="address" placeholder="" required>
+                    <label for="address">Adresse</label>
+                    <input type="text" id="address" name="address" placeholder="" required>
 
                     <label for="city">Ville</label>
                     <input type="text" id="city" name="city" placeholder="Lyon" required>
@@ -95,7 +103,7 @@
 
                     <label for="cvv">CVV</label>
                     <input type="text" id="cvv" name="cvv" placeholder="352" required>
-                    <button type="submit" class="submit-btn">Finaliser la commande</button>
+                    <div class="submit-btn" onclick="confirmOrder()">Finaliser la commande</div>
                 </div>
 
             </form>
@@ -127,7 +135,7 @@
     <div class="title">
         <a href="#header"><i class="fas fa-chevron-up"></i></a>
     </div>
-    
+
     <!-- FOOTER -->
     <footer>
         <div class="about">
@@ -148,14 +156,14 @@
     </footer>
 
     <!-- SCRIPTS -->
+    <script src="js/form.js"></script>
     <script src="js/Camera.js"></script>
     <script src="js/navBar.js"></script>
     <script src="js/cart.js"></script>
-    <script src="js/form.js"></script>
     <script>
+        displayForm();
         addition();
         cartInfo();
-        checkInput();
     </script>
 
 </body>

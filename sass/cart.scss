@@ -243,10 +243,24 @@ span {
             left: 0;
         }
     }
+    .fullname{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        max-width: 805px;
+        .lastname, .firstname{
+            width: 50%;
+        }
+        .lastname{
+            margin-right: 5%;
+        }
+    }
     input {
-        width: 95%;
+        width: 100%;
         margin-bottom: 10px;
         height: 27px;
+        max-width: 805px;
     }
     .userInfo {
         width: 50%;
@@ -257,6 +271,7 @@ span {
         padding: 15px;
     }
     .submit-btn {
+        width: 30%;
         margin-top: 19px;
         border: none;
         outline: none;
@@ -355,6 +370,13 @@ span {
     }
 }
 
+@media (max-width: 768px){
+    .shipping{
+        .submit-btn{
+            width: 50%;
+        }
+    }
+}
 
 @media (max-width: 650px) {
     .product_cart {

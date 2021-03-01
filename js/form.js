@@ -1,58 +1,99 @@
-checkInput = () => {
+var products = localStorage.key("userCart");
+var listOfProducts = JSON.parse(localStorage.getItem(products));
+let productOrder = [];
+for (element in listOfProducts) {
+  productOrder.push(listOfProducts[element].id);
+}
 
+function checkInput() {
+    //Controle Regex
     let checkString = /[a-zA-Z]/;
     let checkNumber = /[0-9]/;
-
-    let checkMail = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/y;
+    let checkMail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     let checkSpecialCharacter = /[§!@#$%^&*(),.?":{}|<>]/;
 
-
+    //message fin de controle
     let checkMessage = "";
 
-
-    let formName = document.getElementById("fname").value;
-    let formEmail = document.getElementById("email").value;
-    let formAdr = document.getElementById("adr").value;
-    let formCity = document.getElementById("city").value;
+    //Récupération des inputs
+    let formLNom = document.getElementById("lname").value;
+    let formFNom = document.getElementById("fname").value;
+    let formMail = document.getElementById("mail").value;
+    let formAdresse = document.getElementById("address").value;
+    let formVille = document.getElementById("city").value;
     let formZip = document.getElementById("zip").value;
-
-
-    if (checkNumber.test(formName) == true || checkSpecialCharacter.test(formName) == true || formName == "") {
-        checkMessage = "Vérifier/renseigner votre nom";
-    }
-
-
-    if (checkMail.test(formEmail) == false) {
-        checkMessage = checkMessage + "\n" + "Vérifier/renseigner votre email";
-    }
-
-
-    if (checkSpecialCharacter.test(formAdr) == true || formAdr == "") {
-        checkMessage = checkMessage + "\n" + "Vérifier/renseigner votre adresse";
-    }
-
-
-    if (checkSpecialCharacter.test(formCity) == true && checkNumber.test(formCity) == true || formCity == "") {
-        checkMessage = checkMessage + "\n" + "Vérifier/renseigner votre ville"
-    }
-
-    if (checkSpecialCharacter.test(formZip) == true && checkMail.test(formZip) == true && checkString.test(formZip) == true || formZip == "") {
-
-
-        /*if (checkMessage != "") {
-            alert("Il est nécessaire de :" + "\n" + checkMessage);
+ 
+        if(checkNumber.test(formLNom) == true || checkSpecialCharacter.test(formLNom) == true || formLNom == ""){
+        	checkMessage = "Vérifier/renseigner votre nom";
+        }
+        
+        if(checkNumber.test(formFNom) == true || checkSpecialCharacter.test(formFNom) == true || formFNom == ""){
+        	checkMessage = "Vérifier/renseigner votre prénom";
+        }
+        
+        if(checkMail.test(formMail) == false){
+        	checkMessage = checkMessage + "\n" + "Vérifier/renseigner votre email";
+        }
+        
+        if(checkSpecialCharacter.test(formAdresse) == true || formAdresse == ""){
+        	checkMessage = checkMessage + "\n" + "Vérifier/renseigner votre adresse";
+        }
+        
+        if(checkSpecialCharacter.test(formVille) == true || checkNumber.test(formVille) == true || formVille == ""){
+        	checkMessage = checkMessage + "\n" + "Vérifier/renseigner votre ville"
         }
 
-
-        else {
-            contact = {
-                firstName: formName,
-                address: formAdr,
-                city: formCity,
-                zip: formZip,
-                email: formEmail
-            };
-            return contact;
-        };*/
+        if(checkSpecialCharacter.test(formZip) == true || checkMail.test(formZip) == true || checkString.test(formZip) == true || formZip == ""){
+        	checkMessage = checkMessage + "\n" + "Vérifier/renseigner votre code postal"
+        }
+        
+        if(checkMessage != ""){
+        	alert("Il est nécessaire de :" + "\n" + checkMessage);
+            return false;
+        }
+        return true;   
     };
-}
+
+    function confirmOrder() {
+        /*Si le formulaire a passé la fonction de Check*/
+        if (checkInput() == true) {
+          let order = {
+            /*Récupère le tableau d'id des produits*/
+            products: productOrder,
+            /*Créé l'objet contact avec les informations récupérées dans le formulaire*/
+            contact: {
+              lastName: document.getElementById("lname").value,
+              firstName: document.getElementById("fname").value,
+              address: document.getElementById("address").value,
+              city: document.getElementById("city").value,
+              email: document.getElementById("mail").value,
+            },
+          };
+          console.log(order)
+          let headers = {
+            "Content-Type": "application/json"
+          };
+          /*Envoie les informations à l'API dans le bon format*/
+          fetch('http://localhost:3000/api/cameras/order', {
+            method: 'post',
+            headers: headers,
+            body: JSON.stringify(order),
+      
+            /*Récupère la réponse envoyée par l'API*/
+          }).then(function (response) {
+            if (response.status == 201) {
+              response.json().then(function (data) {
+                /*Vide le localStorage*/
+                localStorage.clear();
+                /*Envoie les informations renvoyées par l'API dans le sessionStorage*/
+                sessionStorage.setItem("orderSum", JSON.stringify(data));
+                /*Ouvre une fenêtre avec un Query Param basé sur l'id de commande*/
+                window.open("\order.html?orderId=" + data.orderId);
+                window.location.reload();
+              });
+            }
+          }).catch(function (err) {
+            window.alert("Impossible d'afficher les fichiers !")
+          });
+        };
+      }

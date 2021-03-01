@@ -1,5 +1,12 @@
 let userCart = JSON.parse(localStorage.getItem("userCart"));
 
+displayForm = () => {
+    // Permet de ne pas afficher le formulaire si le localStorage n'existe pas
+    if (!localStorage.getItem("userCart")) {
+        document.getElementById("totalPrice").style.display = "none";
+    }
+}
+
 // Création de la fonction d'ajout au panier
 addCart = () => {
 
@@ -26,9 +33,12 @@ addCart = () => {
         const productId = urlParams.get('id')
         let selectQuantity = document.getElementById("productQuantity");
         let selectedQuantity = selectQuantity.options[selectQuantity.selectedIndex].value;
+        let selectLense = document.getElementById("camera_lenses");
+        let selectedLense = selectLense.options[selectLense.selectedIndex].value;
         const item = {
             "id": productId,
-            "quantity": selectedQuantity
+            "quantity": selectedQuantity,
+            "lense": selectedLense
         };
 
         if (!localStorage.getItem("userCart")) {
@@ -41,15 +51,25 @@ addCart = () => {
         // Vérifie si l'objet est déjà dans le pannier, si c'est le cas impossible de l'ajouter une nouvelle fois
         var isInUserCart = false;
         userCart.forEach(element => {
-            if (productId == element.id) {
+            if ((selectedLense == element.lense) && (productId == element.id)) {
                 isInUserCart = true;
             }
         });
+
         if (!isInUserCart) {
             userCart.push(item);
             localStorage.setItem("userCart", JSON.stringify(userCart));
             window.location.reload();
         }
+
+        // Permet d'actualiser la quantité lorsque le produit à déjà été ajouté au panier depuis la page produit
+        userCart.forEach(element => {
+            if ((selectedLense == element.lense) && (productId == element.id)) {
+                element.quantity = selectedQuantity;
+                localStorage.setItem("userCart", JSON.stringify(userCart));
+                window.location.reload();
+            }
+        });
     });
     function formToJson($form) {
         const result = {};
@@ -108,14 +128,13 @@ addition = () => {
 
             const $cameras = document.getElementById('camerasCart')
             const $templateCamera = document.getElementById('cameras_template').content;
-
             let i = 0;
             // Mise en place de la template pour chaque objet
             for (element in data) {
                 const $newTemplateCamera = $templateCamera.cloneNode(true);
                 $newTemplateCamera.querySelector('.camera_image').src = data[element].imageUrl
                 $newTemplateCamera.querySelector('.camera_name').innerHTML = data[element].name
-                $newTemplateCamera.querySelector('.camera_lense').innerHTML = '<span>Objectif: </span> ' + data[element].lenses[0]
+                $newTemplateCamera.querySelector('.camera_lense').innerHTML = '<span>Objectif: </span> ' + listOfProducts[element].lense
                 $newTemplateCamera.querySelector('.camera_price').innerHTML = '<span>Prix: </span> ' + " " + data[element].price / 100 + "€"
                 $newTemplateCamera.getElementById('remove_product').innerHTML = '<button class="cancelProduct"><i class="fas fa-trash-alt"></i> <span class="delete-btn">Supprimer</span></button>'
                 $newTemplateCamera.querySelector('.quantityCheck').innerHTML = '<div data-id="' + data[element]._id + '" class="more">+</div><span>Quantité: </span>' + listOfProducts[element].quantity + '<div data-id="' + data[element]._id + '" class="less">-</div>';
@@ -159,9 +178,8 @@ addition = () => {
                 if (!e.target.classList.contains("more")) {
                     return;
                 }
-
                 for (element in listOfProducts) {
-                    if (listOfProducts[element].id == e.target.dataset.id) {
+                    if (listOfProducts[element].lenses == e.target.dataset.lenses & listOfProducts[element].quantity < 5) {
                         listOfProducts[element].quantity++;
                         window.location.reload();
                     }

@@ -1,7 +1,3 @@
-// Récupération des paramètres de l'URL
-let params = (new URL(document.location)).searchParams;
-let name = params.get("orderId");
-
 // Récupération de la date actuelle + 10 jours pour estimer la livraison
 var targetDate = new Date();
 targetDate.setDate(targetDate.getDate() + 10);

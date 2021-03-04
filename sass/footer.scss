@@ -11,6 +11,7 @@ footer {
     padding-top: 30px;
     padding-left: 50px;
     padding-bottom: 35px;
+    position: relative;
     p {
         font-size: 20px;
         padding-bottom: 8px;
@@ -42,6 +43,16 @@ footer {
     }
     .assistance {
         width: 50%;
+    }
+}
+
+.copy{
+    position: absolute;
+    font-size: 10px;
+    bottom: 0;
+    right: 18px;
+    &::after{
+        content: inherit;
     }
 }
 

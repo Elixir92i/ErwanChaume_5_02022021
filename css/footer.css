@@ -7,7 +7,8 @@ footer {
   flex-wrap: wrap;
   padding-top: 30px;
   padding-left: 50px;
-  padding-bottom: 35px; }
+  padding-bottom: 35px;
+  position: relative; }
   footer p {
     font-size: 20px;
     padding-bottom: 8px;
@@ -33,6 +34,14 @@ footer {
     width: 50%; }
   footer .assistance {
     width: 50%; }
+
+.copy {
+  position: absolute;
+  font-size: 10px;
+  bottom: 0;
+  right: 18px; }
+  .copy::after {
+    content: inherit; }
 
 @media (max-width: 450px) {
   footer .about {

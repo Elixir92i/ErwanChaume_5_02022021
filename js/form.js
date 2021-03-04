@@ -1,9 +1,5 @@
 var products = localStorage.key("userCart");
 var listOfProducts = JSON.parse(localStorage.getItem(products));
-let productOrder = [];
-for (element in listOfProducts) {
-  productOrder.push(listOfProducts[element].id);
-}
 
 function checkInput() {
   // Controle Regex
@@ -56,12 +52,21 @@ function checkInput() {
 };
 
 function confirmOrder() {
+  let productOrder = [];
+  for (products of listOfProducts) {
+    for (let i = 0; i < products.quantity; i++) {
+      productOrder.push(products.id);
+    };
+  }
   // Si le formulaire a passé la fonction checkInput
   if (checkInput() == true) {
     let order = {
 
       // Récupère le tableau d'Id des produits
       products: productOrder,
+      price: {
+        totalPrice: document.getElementById("totalCart").value,
+      },
 
       // Créé l'objet contact avec les informations récupérées dans le formulaire
       contact: {
@@ -82,13 +87,14 @@ function confirmOrder() {
       method: 'post',
       headers: headers,
       body: JSON.stringify(order),
+
     })
       // Récupère la réponse envoyée par l'API
       .then(function (response) {
         if (response.status == 201) {
           response.json().then(function (data) {
             localStorage.clear();
-
+            
             // Envoie les informations renvoyées par l'API dans le sessionStorage
             sessionStorage.setItem("orderSum", JSON.stringify(data));
 

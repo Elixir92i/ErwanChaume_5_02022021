@@ -356,10 +356,10 @@ select {
     margin-bottom: 0px; } }
 @media (max-width: 450px) {
   #camera_image {
-    width: 95%; }
+    width: 100%; }
 
   .card_1 {
-    width: 95%; }
+    width: 100%; }
 
   .bg_product {
     padding: 0;

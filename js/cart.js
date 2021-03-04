@@ -156,7 +156,6 @@ addition = () => {
                 for (element in data) {
                     totalPrice += data[element].price * listOfProducts[element].quantity / 100;
                 };
-                console.log(totalPrice)
                 document.getElementById("totalCart").innerHTML = '<span>Total du panier: </span>' + totalPrice + '€'
             };
 

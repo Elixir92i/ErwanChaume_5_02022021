@@ -292,6 +292,11 @@ footer {
     box-shadow: 0px 0px 15px -5px rgba(0, 0, 0, 0.75);
     border-radius: 15px 0px 0px 15px;
     padding: 20px; }
+    .orderSum .confirmationOrder .productsDetails {
+      display: flex; }
+      .orderSum .confirmationOrder .productsDetails div {
+        width: 50%;
+        margin-right: 15px; }
     .orderSum .confirmationOrder img {
       display: flex;
       margin: auto; }
@@ -349,7 +354,12 @@ footer {
 /*##### MEDIA #####*/
 @media (max-width: 1024px) {
   .orderSum {
-    width: 90%; } }
+    width: 90%; }
+    .orderSum .confirmationOrder .productsDetails {
+      display: inherit; }
+      .orderSum .confirmationOrder .productsDetails div {
+        width: inherit;
+        margin-right: 0; } }
 @media (max-width: 768px) {
   .orderTitle {
     text-align: center; }

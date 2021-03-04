@@ -66,6 +66,13 @@ html {
         box-shadow: 0px 0px 15px -5px rgba(0, 0, 0, 0.75);
         border-radius: 15px 0px 0px 15px;
         padding: 20px;
+        .productsDetails {
+            display: flex;
+            div {
+                width: 50%;
+                margin-right: 15px;
+            }
+        }
         img {
             display: flex;
             margin: auto;
@@ -133,10 +140,19 @@ html {
 @media (max-width: 1024px) {
     .orderSum {
         width: 90%;
+        .confirmationOrder {
+            .productsDetails {
+                display: inherit;
+                div {
+                    width: inherit;
+                    margin-right: 0;
+                }
+            }
+        }
     }
 }
 @media (max-width: 768px) {
-    .orderTitle{
+    .orderTitle {
         text-align: center;
     }
     .orderSum {
@@ -155,7 +171,7 @@ html {
     }
 }
 
-@media (max-width: 600px){
+@media (max-width: 600px) {
     .bg-order {
         margin-top: 0px;
         margin-bottom: 0px;

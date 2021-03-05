@@ -178,7 +178,6 @@ addition = () => {
                     return;
                 }
                 for (element in listOfProducts) {
-                    //console.log(listOfProducts[element].lenses == e.target.dataset.lenses && listOfProducts[element].quantity < 5)
                     if (listOfProducts[element].lense == e.target.dataset.lense && listOfProducts[element].id == e.target.dataset.id && listOfProducts[element].quantity < 5) {
                         listOfProducts[element].quantity++;
                         window.location.reload();

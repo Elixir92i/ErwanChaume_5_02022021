@@ -64,9 +64,6 @@ function confirmOrder() {
 
       // Récupère le tableau d'Id des produits
       products: productOrder,
-      price: {
-        totalPrice: document.getElementById("totalCart").value,
-      },
 
       // Créé l'objet contact avec les informations récupérées dans le formulaire
       contact: {

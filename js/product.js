@@ -23,7 +23,7 @@ async function main() {
         });
     }
     catch (error) {
-
+        alert('Une erreur est survenue !')
     }
 };
 main();

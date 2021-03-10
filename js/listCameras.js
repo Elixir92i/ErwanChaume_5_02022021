@@ -21,7 +21,7 @@ async function main() {
             $cameras.append($newTemplateCamera);
         });
     } catch (error) {
-
+        alert('Une erreur est survenue !')
     }
 }
 
